@@ -1,0 +1,9 @@
+sudo:  required
+services:
+  -docker
+
+before_install:
+  -docker build -t rachitachittal/docker-react -f Dockerfile.dev .
+
+script:
+  -docker run -e CI=true rachitachittal/docker-react npm run test
